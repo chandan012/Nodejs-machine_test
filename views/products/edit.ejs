@@ -1,0 +1,24 @@
+<div class="card">
+    <h2>Edit Product</h2>
+    <form method="POST">
+        <div class="form-group">
+            <label for="name">Product Name:</label>
+            <input type="text" id="name" name="name" value="<%= product.name %>" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="categoryId">Category:</label>
+            <select id="categoryId" name="categoryId" required>
+                <option value="">Select a category</option>
+                <% categories.forEach(category => { %>
+                    <option value="<%= category.id %>" <%= category.id === product.categoryId ? 'selected' : '' %>>
+                        <%= category.name %>
+                    </option>
+                <% }) %>
+            </select>
+        </div>
+        
+        <button type="submit" class="btn">Update Product</button>
+        <a href="/products" style="margin-left: 10px;">Cancel</a>
+    </form>
+</div>
